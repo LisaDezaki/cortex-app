@@ -1,14 +1,13 @@
-## laravel-svelte-starter
+## cortex-app
 
 Starter template using Laravel and Svelte.
 
-This starter template includes:
+This app is built using a starter template which includes:
 - Laravel 11
 - Svelte
 - Inertia.js
 - Vite
 - Tailwind CSS
-- daisyUI
 - sqlite
 
 ### Installation
