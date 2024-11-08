@@ -8,8 +8,8 @@
     @inertiaHead
 </head>
 
-<body>
-    @inertia
+<body style="margin:0;">
+	@inertia
 </body>
 
 </html>

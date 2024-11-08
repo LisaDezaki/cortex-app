@@ -2,7 +2,11 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Character;
+use App\Models\Post;
+use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Inertia\Middleware;
 
 class HandleInertiaRequests extends Middleware
@@ -36,15 +40,27 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request): array
     {
-        return array_merge(parent::share($request), [
-            'appName' => config('app.name'),
-            'csrfToken' => csrf_token(),
-            'auth.user' => fn () => $request->user()
-                ? $request->user()->only('id', 'name', 'email')
-                : null,
-            'flash' => [
-                'message' => fn () => $request->session()->get('message')
-            ]
-        ]);
+		return array_merge(parent::share($request), [
+			'appName' => config('app.name'),
+			'csrfToken' => csrf_token(),
+			'auth.user' => fn () => $request->user()
+				? $request->user()->only('id', 'name', 'email', 'avatar')
+				: null,
+			'flash' => [
+				'message' => fn () => $request->session()->get('message')
+			],
+
+			'projects' => fn () => Auth::user()
+				? Auth::user()->projects()->get()
+				: null,
+
+			'active_project_id' => fn () => Auth::user()
+				? Auth::user()->active_project
+				: null,
+				
+			'project' => Auth::user() && Auth::user()->active_project
+				? Auth::user()->unpackProject()
+				: null,
+		]);
     }
 }

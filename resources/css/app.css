@@ -1,3 +1,231 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+
+	/* Breakpoints */
+
+	--bp-sm:	640px;
+	--bp-md:	768px;
+	--bp-lg:	1024px;
+	--bp-xl:	1280px;
+	--bp-xxl:	1536px;
+
+	/* Borders */
+
+	--radius:	0.5rem;
+	--radius-sm:	0.125rem;
+	--border-thin:	0.75px;
+	--border-width:	1.50px;
+	--border-thick:	2.25px;
+	--border-main-color:	rgba( var(--color-black), 0.25 );
+	--border-main-radius:	0.5rem;
+	--border-main-style:	solid;
+	--border-main-width:	1.5px;
+	--border-subtle-color:	rgba( var(--color-black), 0.1 );
+	--border-subtle-radius:	0.5rem;
+	--border-subtle-style:	dashed;
+	--border-subtle-width:	0.75px;
+
+	/* Colors */
+
+	--color-brand: 254, 19, 96;
+	--color-text:	00, 200, 200;
+	--color-white:	55, 255, 255;
+	--color-light-1:	44, 244, 244;
+	--color-light-2:	33, 233, 233;
+	--color-light-3:	22, 222, 222;
+	--color-light-4:	00, 200, 200;
+	--color-dark-6:	72, 72, 69;
+	--color-dark-7:	53, 53, 49;
+	--color-dark-8:	34, 34, 32;
+	--color-dark-9:	23, 23, 21;
+	--color-black:	12, 12, 11;
+	--gradient-stops: var(--color-black)
+
+	/* Shadows */
+
+	--shadow-sm:	0 1px 2px 0 rgba(0,0,0,0.05);
+	--shadow:	0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+	--shadow-md:	0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow-lg:	0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+	--shadow-xl:	0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	--shadow-2xl:	0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	--shadow-inner:	inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+	--shadow-none:	0 0 #0000;
+
+	/* Sizes */
+
+	--size-xs:	0.5rem;
+	--size-sm:	0.75rem;
+	--size-md:	1rem;
+	--size-lg:	2rem;
+	--size-xl:	4rem;
+	--size-xxl:	6rem;
+
+	/* Fonts */
+
+	--font-display:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-heading: Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-main:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-button:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-code:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-label:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--font-quote:	Epilogue, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	--width-main:	1100px;
+	--width-nav:	14rem;
+	--width-prose:	65ch;
+}
+
+.bg-brand {
+	background-color: rgb(var(--color-brand));
+}
+
+.border-brand {
+	border-color: rgb(var(--color-brand));
+}
+
+.text-brand {
+	color: rgb(var(--color-brand));
+}
+
+@font-face {
+    font-family: 'Author';
+    src: url('/fonts/Author/Variable/Author-Variable.ttf') format('ttf');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Author';
+    src: url('/fonts/Author/Variable/Author-VariableItalic.ttf') format('ttf');
+    font-weight: 100 900;
+    font-stretch: 75% 100%;
+    font-style: italic;
+}
+
+@layer components {
+
+	/*
+	 *	Buttons
+	 */
+
+	.button {
+		@apply inline-flex items-center justify-center gap-2 px-3 py-1.5;
+		@apply border rounded-md shadow-sm whitespace-nowrap;
+		@apply hover:shadow-md transition-all;
+	}
+	.button-lg {
+		@apply px-4 py-2;
+	}
+	.button-xl {
+		@apply px-6 py-3;
+	}
+	.button-primary {
+		@apply bg-emerald-500 border-emerald-600 text-white hover:bg-emerald-400 hover:border-emerald-500;
+	}
+	.button-secondary {
+		@apply bg-gray-50 border-gray-200 text-emerald-400 hover:bg-white;
+	}
+
+
+	/*
+	 *	Cards
+	 */
+
+	.card {
+		@apply px-4 py-4 rounded-lg;
+	}
+
+
+
+
+	/*
+	 *	Headings
+	 */
+
+	.heading {
+
+	}
+	
+	.h1 {
+		@apply font-semibold text-7xl mb-6;
+	}
+
+	.h2 {
+		@apply font-bold text-5xl mt-6 mb-4;
+	}
+
+	.h3 {
+		@apply font-medium text-3xl mt-5 mb-3;
+	}
+
+	.h4 {
+		@apply font-bold text-2xl mt-4 mb-2.5;
+	}
+
+	.h5 {
+		@apply font-medium text-xl mt-3 mb-2;
+	}
+
+	.h6 {
+		@apply font-medium text-lg mt-2.5 mb-1.5;
+	}
+
+
+	/*
+	 *	Inputs
+	 */
+
+	.input {
+		@apply px-4 py-2 w-full;
+		@apply border rounded-md;
+		@apply text-lg;
+		@apply bg-transparent border-slate-300 placeholder-slate-300;
+		@apply hover:border-emerald-400 focus:border-emerald-400 transition-all;
+	}
+
+
+
+	/*
+	 *	Links
+	 */
+	
+	.link {
+		@apply p-1;
+	}
+	.link.active {
+
+	}
+
+	.nav-link {
+		@apply flex gap-2 items-center flex-shrink-0 truncate h-10 px-4 py-1 relative;
+		@apply hover:bg-emerald-900 text-emerald-100;
+	}
+	.nav-link.active {
+		@apply bg-emerald-900 font-medium text-white shadow-inner;
+	}
+	.nav-link .panel-link-arrow {
+		visibility: hidden;
+	}
+
+	.panel-link {
+		@apply flex gap-2 items-center flex-shrink-0 truncate h-10 px-4 py-1 relative;
+		@apply hover:bg-black/10 font-normal text-black/65 dark:text-white/85;
+	}
+	.panel-link.active {
+		@apply bg-emerald-500/15 font-medium text-emerald-500;
+	}
+	.panel-link .panel-link-arrow {
+		@apply absolute transition-all duration-500;
+	}
+	.panel-link:not(.active) .panel-link-arrow {
+		@apply text-transparent right-9;
+	}
+	.panel-link.active .panel-link-arrow {
+		@apply text-emerald-400 right-3;
+	}
+
+}

@@ -1,13 +1,16 @@
 <script context="module">
-    export { default as layout } from "../Layouts/App.svelte";
+    export { default as layout } from "@/Layouts/App.svelte";
 </script>
 
 <script>
     import { page, Link, useForm } from "@inertiajs/svelte";
-    import Alert from "../Components/Alert.svelte";
-    import Pagination from "../Components/Pagination.svelte";
+		import NavList from '@/Components/NavList.svelte';
+		import NavLink from '@/Components/NavLink.svelte';
+		import Panel from '@/Components/Panel.svelte';
+    import Alert from "@/Components/Alert.svelte";
+    import Pagination from "@/Components/Pagination.svelte";
 
-	import Fa from "svelte-fa";
+		import Fa from "svelte-fa";
     import { faPencil, faTrash } from "@fortawesome/free-solid-svg-icons";
 
     export let posts;
@@ -30,7 +33,22 @@
     <title>{$page.props.appName}</title>
 </svelte:head>
 
-{#if posts.data.length == 0}
+<Panel heading="Posts">
+	{#if posts.data && posts.data.length != 0 }
+		<NavList>
+			<NavLink href="/posts/create">New Post</NavLink>
+			{#each posts.data as post}
+				<NavLink href="/posts/{post.id}">{post.title}</NavLink>
+			{/each}
+		</NavList>
+	{/if}
+</Panel>
+
+<div class="p-4">
+	
+</div>
+
+<!-- {#if posts.data.length == 0}
     <Alert>Empty.</Alert>
 {:else}
     {#each posts.data as post}
@@ -49,7 +67,7 @@
     {/each}
 
     <Pagination data={posts} />
-{/if}
+{/if} -->
 
 <dialog bind:this={dialog} class="modal">
     <form on:submit|preventDefault={submit} class="modal-box">

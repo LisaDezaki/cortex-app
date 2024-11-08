@@ -1,0 +1,42 @@
+{
+	"tableton-academy": {
+		"name": "Tableton Academy",
+		"desc": ""
+	},
+	"tableton-council": {
+		"name": "Tableton Council",
+		"desc": ""
+	},
+	"tableton-dock": {
+		"name": "Tableton Dock",
+		"desc": ""
+	},
+	"tableton-precinct": {
+		"name": "Tableton Precinct",
+		"desc": "The police station of Tableton."
+	},
+	"tableton-tavern": {
+		"name": "Tableton Tavern",
+		"desc": ""
+	},
+	"construction-site": {
+		"name": "Construction Site",
+		"desc": ""
+	},
+	"cursed-forest": {
+		"name": "The Cursed Forest",
+		"desc": "The dark forest on the edge of town is said to be cursed. A recent proposal has passed to begin deforestation."
+	},
+	"pirate-ship": {
+		"name": "Pirate Ship",
+		"desc": ""
+	},
+	"red-mountains": {
+		"name": "Red Mountains",
+		"desc": ""
+	},
+	"trailer-park": {
+		"name": "Trailer Park",
+		"desc": "A trailer park outside of town, near the Red Mountains."
+	}
+}

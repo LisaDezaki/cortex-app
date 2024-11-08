@@ -5,8 +5,13 @@ export default {
     './resources/views/**/*.blade.php',
     './resources/js/**/*.svelte',
   ],
+	darkMode: 'selector',
   theme: {
-    extend: {},
+    extend: {
+		fontFamily: {
+			sans: ['Author', 'sans-serif']
+		}
+	},
   },
   plugins: [require("daisyui")],
 }

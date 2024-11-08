@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -19,7 +20,9 @@ class User extends Authenticatable
 	protected $fillable = [
 		'name',
 		'email',
+		'avatar',
 		'password',
+		'active_project'
 	];
 
 	/**
@@ -44,4 +47,33 @@ class User extends Authenticatable
 			'password' => 'hashed',
 		];
 	}
+
+	/**
+	 * Set up user relationships.
+	 *
+	 * @return \Illuminate\Database\Eloquent\Relations\Relation
+	 */
+	public function projects(): HasMany
+	{
+		return $this->hasMany(Project::class);
+	}
+
+	public function activeProject()
+	{
+		return Project::where('id', $this->active_project)->first();
+	}
+
+	public function unpackProject()
+	{
+		$project = Project::where('id', $this->active_project)->first();
+		$project->characters = $project->characters()->get();
+		$project->factions = $project->factions()->get();
+		$project->locations = $project->locations()->get();
+		$project->customFields = $project->customFields()->get();
+		foreach ($project->customFields as $field) {
+			$field['options'] = $field->options()->get();
+		}
+		return $project;
+	}
+
 }

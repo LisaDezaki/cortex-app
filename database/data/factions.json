@@ -1,0 +1,34 @@
+{
+	"cold-bloods": {
+		"name": "The Cold-Bloods",
+		"desc": "The Cold Bloods are an organized crime syndicate operating in town, primarily through the tavern."
+	},
+	"dragon-council": {
+		"name": "The Dragon Council",
+		"desc": "The Dragon Council is a recent addition to the city. While a few people have connected the dots, most people haven't realized yet that the dragons are siphoning resources from the city."
+	},
+	"hikers": {
+		"name": "Hikers",
+		"desc": "A group of hikers who like to go hiking in the nearby Red Mountains."
+	},
+	"insectoids": {
+		"name": "The Insectoid Gang",
+		"desc": "The Insectoids are a newer gang in town, starting to cause problems late at night."
+	},
+	"pirates": {
+		"name": "Pirates",
+		"desc": "The pirates have been harbored in Tableton Dock for nearly a week now."
+	},
+	"students": {
+		"name": "Students",
+		"desc": "Students who attend the Tableton Academy."
+	},
+	"tavern-workers": {
+		"name": "Tavern Workers",
+		"desc": "A lot of people in the town make their money through the town's tavern."
+	},
+	"teachers-union": {
+		"name": "Teacher's Union",
+		"desc": "The teacher's union for the Tableton Academy. It's not a very strong union and is losing power every year."
+	}
+}

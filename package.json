@@ -19,6 +19,8 @@
   "dependencies": {
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
     "@inertiajs/svelte": "^1.0.9",
+    "bits-ui": "^0.21.16",
+    "lucide-svelte": "^0.453.0",
     "svelte-fa": "^4.0.2"
   }
 }
