@@ -1,6 +1,6 @@
 ## cortex-app
 
-Starter template using Laravel and Svelte.
+Cortex is a basic world-building app for managing story and quest concepts for video games. Build connections between characters, factions, locations, and make the story feel both richer and realer.
 
 This app is built using a starter template which includes:
 - Laravel 11
